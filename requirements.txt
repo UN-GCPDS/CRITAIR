@@ -1,0 +1,31 @@
+# Dependencias principales para el proyecto CRITAIR
+# Análisis de precisión y tiempos de modelos IA
+
+# Variables de entorno
+python-dotenv>=1.0.0
+
+# LangChain y componentes relacionados
+langchain>=0.1.0
+langchain-openai>=0.1.0
+langchain-google-genai>=1.0.0
+langchain-community>=0.0.20
+langchain-experimental>=0.0.50
+langchain-ollama>=0.1.0
+
+# Análisis de datos y visualización
+pandas>=2.0.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Notebook y herramientas de desarrollo
+jupyter>=1.0.0
+ipykernel>=6.25.0
+
+# Cliente HTTP
+httpx>=0.25.0
+
+# Otros requerimientos
+tabulate>=0.9.0
+openpyxl>=3.1.0  # Para leer archivos Excel con pandas
+chromadb>=0.4.0  # Para vectorstores Chroma
