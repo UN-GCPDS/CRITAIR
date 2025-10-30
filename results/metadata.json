@@ -1,0 +1,127 @@
+{
+  "experiment_metadata": {
+    "title": "CRITAIR - AI Models BertScore Evaluation",
+    "description": "Comprehensive evaluation of AI models for Colombian electrical regulations",
+    "date_generated": "2025-10-30",
+    "version": "1.0.0",
+    "methodology": "BertScore with Spanish baseline rescaling",
+    "total_models_evaluated": 10,
+    "evaluation_categories": 3
+  },
+  "data_sources": {
+    "unstructured_data": {
+      "description": "RAG analysis with regulatory documents",
+      "document_types": ["RETIE", "NTC2050", "Resolution 40117"],
+      "questions_count": 19,
+      "methodology": "Retrieval-Augmented Generation"
+    },
+    "structured_data": {
+      "description": "DataFrame analysis with pandas agents",
+      "data_source": "CHEC transformer events (synthetic for demo)",
+      "questions_count": 10,
+      "methodology": "LangChain pandas agents"
+    },
+    "recommendations": {
+      "description": "Technical recommendations for electrical infrastructure",
+      "context": "Environmental and operational variables",
+      "questions_count": 15,
+      "methodology": "Contextualized RAG with regulatory mapping"
+    }
+  },
+  "models_evaluated": [
+    {
+      "name": "gpt-3.5 turbo",
+      "provider": "OpenAI",
+      "type": "Commercial",
+      "parameters": "175B (estimated)",
+      "api_model": "gpt-3.5-turbo"
+    },
+    {
+      "name": "gpt 4o",
+      "provider": "OpenAI", 
+      "type": "Commercial",
+      "parameters": "Unknown",
+      "api_model": "gpt-4o"
+    },
+    {
+      "name": "Gemini 2.0",
+      "provider": "Google",
+      "type": "Commercial",
+      "parameters": "Unknown",
+      "api_model": "gemini-2.0-flash-001"
+    },
+    {
+      "name": "Gemini 2.5",
+      "provider": "Google",
+      "type": "Commercial", 
+      "parameters": "Unknown",
+      "api_model": "gemini-2.5-pro-exp-03-25"
+    },
+    {
+      "name": "Llama 3.1:8b",
+      "provider": "Meta",
+      "type": "Open Source",
+      "parameters": "8B",
+      "api_model": "llama3.1"
+    },
+    {
+      "name": "Llama 3.2:1b",
+      "provider": "Meta",
+      "type": "Open Source",
+      "parameters": "1B", 
+      "api_model": "llama3.2:1b"
+    },
+    {
+      "name": "Qwen 2.5:1.5b",
+      "provider": "Alibaba",
+      "type": "Open Source",
+      "parameters": "1.5B",
+      "api_model": "qwen2.5:1.5b"
+    },
+    {
+      "name": "Qwen 2.5:7b",
+      "provider": "Alibaba", 
+      "type": "Open Source",
+      "parameters": "7B",
+      "api_model": "qwen2.5:7b"
+    },
+    {
+      "name": "DeepSeek-r1:7b",
+      "provider": "DeepSeek",
+      "type": "Open Source",
+      "parameters": "7B",
+      "api_model": "deepseek-r1:7b"
+    },
+    {
+      "name": "DeepSeek-r1:1.5b",
+      "provider": "DeepSeek",
+      "type": "Open Source", 
+      "parameters": "1.5B",
+      "api_model": "deepseek-r1:1.5b"
+    }
+  ],
+  "metrics_explanation": {
+    "bertscore": {
+      "description": "Semantic similarity score using transformer embeddings",
+      "range": "0.0 to 1.0 (higher is better)",
+      "language": "Spanish (es)",
+      "baseline_rescaling": true
+    },
+    "inference_time": {
+      "description": "Average response time per query", 
+      "unit": "seconds",
+      "measurement": "Mean across multiple runs"
+    },
+    "balance": {
+      "description": "Combined quality-speed metric",
+      "formula": "Inference Time / BertScore", 
+      "interpretation": "Lower values indicate better balance"
+    }
+  },
+  "key_findings": {
+    "best_overall": "GPT-3.5 Turbo - Consistent high performance across categories",
+    "best_open_source": "Llama 3.2:1b - Good balance of speed and quality",
+    "fastest_model": "GPT-3.5 Turbo - Best response times with high accuracy",
+    "highest_accuracy": "GPT-3.5 Turbo - Superior BertScore in unstructured analysis"
+  }
+}
